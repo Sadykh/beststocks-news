@@ -38,9 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'itemView' => '_item_comment',
     ]) ?>
     <hr>
-
-
-
     <h3>Оставить комментарий</h3>
     <?php $form = ActiveForm::begin(['id' => 'comment-form']); ?>
 

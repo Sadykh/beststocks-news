@@ -12,13 +12,24 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-md-8">
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+            <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            <div class="form-group">
+                <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'imageFile')->fileInput() ?>
+            <?php if ($model->filename): ?>
+                <img src="<?= $model->getImageOnWeb() ?>" alt="" class="img-responsive">
+            <?php endif ?>
+        </div>
     </div>
+
 
     <?php ActiveForm::end(); ?>
 
