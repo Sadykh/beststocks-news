@@ -43,6 +43,7 @@ AppAsset::register($this);
         $items[] = ['label' => 'Войти', 'url' => ['/site/login']];
     } else {
         $items[] = ['label' => 'Новости (админ)', 'url' => ['/admin/news']];
+        $items[] = ['label' => 'Комментарии (админ)', 'url' => ['/admin/comment']];
         $items[] = '<li>'
             .Html::beginForm(['/site/logout'], 'post')
             .Html::submitButton(
