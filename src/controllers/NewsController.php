@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\CommentForm;
+use app\models\ContactForm;
 use app\models\News;
 use app\models\NewsSearch;
 use Yii;
@@ -22,8 +24,17 @@ class NewsController extends Controller
 
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $comment = new CommentForm();
+        if ($comment->load(Yii::$app->request->post()) && $comment->save($model)) {
+            Yii::$app->session->setFlash('success', 'Комментарий успешно добавлен');
+
+            return $this->refresh();
+        }
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'comment' => $comment,
+            'model' => $model,
         ]);
     }
 
