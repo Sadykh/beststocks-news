@@ -46,6 +46,10 @@ class NewsSearch extends News
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 3,
+            ],
+            'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]],
         ]);
 
         $this->load($params);
