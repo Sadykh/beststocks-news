@@ -25,7 +25,7 @@ $config = [
             'parsers' => [
                 'application/json' => yii\web\JsonParser::class,
             ],
-            'baseUrl' => '/yii2/',
+            'baseUrl' => '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
