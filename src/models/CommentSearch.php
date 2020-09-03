@@ -33,7 +33,8 @@ class CommentSearch extends Comment
 
     /**
      * Creates data provider instance with search query applied
-     * @param array $params
+     * @param array    $params
+     * @param int|null $newsId
      * @return ActiveDataProvider
      */
     public function search($params, int $newsId = null)

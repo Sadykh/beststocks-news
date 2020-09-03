@@ -1,0 +1,24 @@
+
+GET {{host-url}}/news
+Cache-Control: no-cache
+Content-Type: application/json
+Accept: application/json
+
+
+###
+GET {{host-url}}/news?page=2
+Cache-Control: no-cache
+Content-Type: application/json
+Accept: application/json
+
+###
+GET {{host-url}}/news/view/1
+Cache-Control: no-cache
+Content-Type: application/json
+Accept: application/json
+
+###
+GET {{host-url}}/news/view/1?page=2
+Cache-Control: no-cache
+Content-Type: application/json
+Accept: application/json

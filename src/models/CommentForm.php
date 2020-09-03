@@ -18,15 +18,18 @@ class CommentForm extends Model
 
     public $verifyCode;
 
+    public $news_id;
+
     /**
      * @return array the validation rules.
      */
     public function rules()
     {
         return [
-            [['name', 'email', 'body'], 'required'],
+            [['name', 'email', 'body', 'news_id'], 'required'],
             // email has to be a valid email address
             ['email', 'email'],
+            ['news_id', 'integer'],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
         ];
@@ -44,14 +47,13 @@ class CommentForm extends Model
 
     /**
      * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
      * @return bool whether the model passes validation
      */
-    public function save(News $news)
+    public function save()
     {
         if ($this->validate()) {
             $comment = new Comment();
-            $comment->news_id = $news->id;
+            $comment->news_id = $this->news_id;
             $comment->content = $this->body;
             $comment->email = $this->email;
             $comment->name = $this->name;

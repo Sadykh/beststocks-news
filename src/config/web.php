@@ -13,10 +13,18 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
     ],
+    'modules' => [
+        'api' => [
+            'class' => 'app\modules\api\Module',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'vS_xr3w5oAcrlSbPoXXYwmi2vH5ewwFX',
+            'parsers' => [
+                'application/json' => yii\web\JsonParser::class,
+            ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -51,6 +59,7 @@ $config = [
             'rules' => [
                 '/' => 'news/index',
                 '/news/view/<id>' => 'news/view',
+                '/api/news/view/<id>' => 'api/news/view',
             ],
         ],
     ],
