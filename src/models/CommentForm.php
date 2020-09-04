@@ -16,8 +16,6 @@ class CommentForm extends Model
 
     public $body;
 
-    public $verifyCode;
-
     public $news_id;
 
     /**
@@ -30,20 +28,9 @@ class CommentForm extends Model
             // email has to be a valid email address
             ['email', 'email'],
             ['news_id', 'integer'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
         ];
     }
 
-    /**
-     * @return array customized attribute labels
-     */
-    public function attributeLabels()
-    {
-        return [
-            'verifyCode' => 'Verification Code',
-        ];
-    }
 
     /**
      * Sends an email to the specified email address using the information collected by this model.
