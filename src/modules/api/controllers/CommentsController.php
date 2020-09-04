@@ -9,6 +9,8 @@ use yii\web\Controller;
 
 class CommentsController extends Controller
 {
+    public $enableCsrfValidation = false;
+
     public function actionIndex($id)
     {
         $commentSearchModel = new CommentSearch();
