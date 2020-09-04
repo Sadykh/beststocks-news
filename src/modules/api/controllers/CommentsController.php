@@ -29,10 +29,10 @@ class CommentsController extends Controller
     public function actionAdd()
     {
         $commentForm = new CommentForm();
-        if ($commentForm->load(Yii::$app->request->post()) && $commentForm->save()) {
+        if ($commentForm->load(Yii::$app->request->post(), '') && $commentForm->save()) {
             Yii::$app->session->setFlash('success', 'Комментарий успешно добавлен');
 
-            return $this->refresh();
+            return $commentForm;
         }
 
         return [
